@@ -1,32 +1,32 @@
 import os
-from openai import OpenAI
-from fastapi import FastAPI, Form, Depends, Request
-from fastapi.responses import StreamingResponse
-from io import BytesIO
-from decouple import config
-from sqlalchemy.orm import Session
+from pathlib import Path
+from uuid import uuid4
 
-# Internal imports
+import httpx
+from fastapi import FastAPI, Form, Depends, Request
+from fastapi.responses import FileResponse
+from sqlalchemy.orm import Session
+from decouple import config
+from openai import OpenAI
+
+from utils import send_message, logger
 from models import SessionLocal
 from db import save_conversation, get_last_messages
-from utils import send_message, logger
 
-from pathlib import Path
-from fastapi.responses import FileResponse
-from uuid import uuid4
-# Initialize FastAPI
 app = FastAPI()
-
-
 Path("audio").mkdir(exist_ok=True)
 
-
-# OpenAI API Client
+# OpenAI client
 client = OpenAI(api_key=config("OPENAI_API_KEY"))
 
-# Doctor system prompt
+# Twilio credentials
+TWILIO_SID = config("TWILIO_ACCOUNT_SID")
+TWILIO_TOKEN = config("TWILIO_AUTH_TOKEN")
+NGROK_URL = config("NGROK_URL")  # e.g., https://abcd1234.ngrok.io
+
+# Doctor persona
 system_prompt = """
-You are Dr. Emily, a professional and empathetic general physician. 
+You are Dr. Emily, a professional and empathetic general physician.
 You respond clearly and kindly to patient messages.
 
 - Always provide accurate medical information and advice.
@@ -38,9 +38,11 @@ You respond clearly and kindly to patient messages.
 - Keep answers concise, helpful, and practical.
 - Suggest prescription-only medications or anything but advise to consult doctor.
 - If the patient’s symptoms could be an emergency, instruct them to seek urgent medical care immediately.
+- You may respond in text, but know that the system can convert your text into voice automatically.
+- Never say you can only respond in text. Just provide the answer in normal text.
 """
 
-# Dependency to get DB session
+# DB session
 def get_db():
     db = SessionLocal()
     try:
@@ -48,35 +50,62 @@ def get_db():
     finally:
         db.close()
 
-# Serve audio files
+
 @app.get("/audio/{filename}")
 async def get_audio(filename: str):
     return FileResponse(f"audio/{filename}")
 
-@app.get("/")
-async def index():
-    return {"msg": "working"}
 
 @app.post("/message")
-async def reply(request: Request, Body: str = Form(...), db: Session = Depends(get_db)):
+async def reply(
+    request: Request,
+    Body: str = Form(None),
+    MediaUrl0: str = Form(None),
+    db: Session = Depends(get_db)
+):
+    """
+    Handles both text and audio messages from WhatsApp.
+    MediaUrl0 is sent by Twilio if user sends audio.
+    """
     form_data = await request.form()
     whatsapp_number = form_data.get("From", "").split("whatsapp:")[-1].strip()
-    logger.info(f"Incoming message from {whatsapp_number}: {Body}")
+    logger.info(f"Incoming message from {whatsapp_number}: {Body or MediaUrl0}")
 
-    # Retrieve last 50 messages for context
+    # Step 1: Retrieve last 50 messages for context
     last_messages = get_last_messages(db, whatsapp_number, limit=50)
 
-    # Prepare messages for OpenAI with doctor persona
+    # Step 2: Detect message type
+    if MediaUrl0:
+        # Download audio with Twilio auth
+        audio_filename = f"{uuid4()}.ogg"
+        audio_path = Path("audio") / audio_filename
+        async with httpx.AsyncClient(auth=(TWILIO_SID, TWILIO_TOKEN), follow_redirects = True) as client_http:
+            r = await client_http.get(MediaUrl0)
+            r.raise_for_status()
+            with open(audio_path, "wb") as f:
+                f.write(r.content)
+
+        # Transcribe audio with Whisper
+        with open(audio_path, "rb") as audio_file:
+            transcription = client.audio.transcriptions.create(
+                model="whisper-1",
+                file=audio_file
+            ).text
+        user_message_for_gpt = transcription.lower().replace("reply in voice", "").strip()
+        voice_reply = True  # Always reply in voice for audio
+    else:
+        # Text message
+        user_message_for_gpt = Body.lower().replace("reply in voice", "").strip()
+        voice_reply = "voice" in Body.lower() or "reply in voice" in Body.lower()
+
+    # Step 3: Prepare GPT messages
     messages = [{"role": "system", "content": system_prompt}]
     for conv in last_messages:
         messages.append({"role": "user", "content": conv.message})
         messages.append({"role": "assistant", "content": conv.response})
-    messages.append({"role": "user", "content": Body})
+    messages.append({"role": "user", "content": user_message_for_gpt})
 
-    # Decide if voice reply is requested
-    voice_reply = "voice" in Body.lower() or "reply in voice" in Body.lower()
-
-    # Call OpenAI GPT-4.1-mini
+    # Step 4: Get GPT response
     try:
         response = client.chat.completions.create(
             model="gpt-4.1-mini",
@@ -90,32 +119,27 @@ async def reply(request: Request, Body: str = Form(...), db: Session = Depends(g
         logger.error(f"OpenAI API error: {e}")
         chatgpt_response = "Sorry, something went wrong. Please try again later."
 
-    # Store conversation in DB
-    save_conversation(db, whatsapp_number, Body, chatgpt_response)
+    # Step 5: Store conversation in DB
+    save_conversation(db, whatsapp_number, user_message_for_gpt, chatgpt_response)
 
-    # Send message via Twilio
-    send_message(whatsapp_number, chatgpt_response)
-
+    # Step 6: Send TTS if needed
     if voice_reply:
         try:
-            tts_response = client.audio.speech.create(
+            tts_filename = f"{uuid4()}.mp3"
+            tts_path = Path("audio") / tts_filename
+            with client.audio.speech.with_streaming_response.create(
                 model="gpt-4o-mini-tts",
                 voice="sage",
                 input=chatgpt_response
-            )
-            filename = f"{uuid4()}.mp3"
-            audio_path = Path("audio") / filename
-            with open(audio_path, "wb") as f:
-                f.write(tts_response.audio)
-            
-            # ngrok URL must be public and point to /audio/
-            ngrok_url = config("NGROK_URL")  # like "https://abcd1234.ngrok.io"
-            audio_url = f"{ngrok_url}/audio/{filename}"
+            ) as tts_resp:
+                tts_resp.stream_to_file(tts_path)
 
-            # Send voice message via Twilio
+            audio_url = f"{NGROK_URL}/audio/{tts_filename}"
             send_message(whatsapp_number, audio_url, is_voice=True)
         except Exception as e:
             logger.error(f"TTS generation error: {e}")
-            send_message(whatsapp_number, chatgpt_response)  # fallback
+            send_message(whatsapp_number, chatgpt_response)
+    else:
+        send_message(whatsapp_number, chatgpt_response)
 
-    return ""  # Empty HTTP 200 response
+    return ""
