@@ -11,8 +11,15 @@ from models import SessionLocal
 from db import save_conversation, get_last_messages
 from utils import send_message, logger
 
+from pathlib import Path
+from fastapi.responses import FileResponse
+from uuid import uuid4
 # Initialize FastAPI
 app = FastAPI()
+
+
+Path("audio").mkdir(exist_ok=True)
+
 
 # OpenAI API Client
 client = OpenAI(api_key=config("OPENAI_API_KEY"))
@@ -41,6 +48,11 @@ def get_db():
     finally:
         db.close()
 
+# Serve audio files
+@app.get("/audio/{filename}")
+async def get_audio(filename: str):
+    return FileResponse(f"audio/{filename}")
+
 @app.get("/")
 async def index():
     return {"msg": "working"}
@@ -61,12 +73,15 @@ async def reply(request: Request, Body: str = Form(...), db: Session = Depends(g
         messages.append({"role": "assistant", "content": conv.response})
     messages.append({"role": "user", "content": Body})
 
+    # Decide if voice reply is requested
+    voice_reply = "voice" in Body.lower() or "reply in voice" in Body.lower()
+
     # Call OpenAI GPT-4.1-mini
     try:
         response = client.chat.completions.create(
             model="gpt-4.1-mini",
             messages=messages,
-            max_tokens=250,
+            max_tokens=400,
             temperature=0.5
         )
         chatgpt_response = response.choices[0].message.content
@@ -80,4 +95,27 @@ async def reply(request: Request, Body: str = Form(...), db: Session = Depends(g
 
     # Send message via Twilio
     send_message(whatsapp_number, chatgpt_response)
+
+    if voice_reply:
+        try:
+            tts_response = client.audio.speech.create(
+                model="gpt-4o-mini-tts",
+                voice="sage",
+                input=chatgpt_response
+            )
+            filename = f"{uuid4()}.mp3"
+            audio_path = Path("audio") / filename
+            with open(audio_path, "wb") as f:
+                f.write(tts_response.audio)
+            
+            # ngrok URL must be public and point to /audio/
+            ngrok_url = config("NGROK_URL")  # like "https://abcd1234.ngrok.io"
+            audio_url = f"{ngrok_url}/audio/{filename}"
+
+            # Send voice message via Twilio
+            send_message(whatsapp_number, audio_url, is_voice=True)
+        except Exception as e:
+            logger.error(f"TTS generation error: {e}")
+            send_message(whatsapp_number, chatgpt_response)  # fallback
+
     return ""  # Empty HTTP 200 response
