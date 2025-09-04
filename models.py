@@ -22,6 +22,7 @@ class Conversation(Base):
 
     id = Column(Integer, primary_key=True, index=True, nullable=False)
     sender = Column(String, index=True)  # unique user identifier
+    channel = Column(String, default="whatsapp", index=True)
     message = Column(Text, nullable=False)
     response = Column(Text, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
