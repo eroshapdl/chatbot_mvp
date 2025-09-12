@@ -17,7 +17,7 @@ def save_conversation(db: Session, user_id: str, message: str, response: str):
         logger.error(f"Error saving conversation: {e}")
         return None
 
-def get_last_messages(db: Session, user_id: str, limit: int = 50):
+def get_last_messages(db: Session, user_id: str, limit: int = 20):
     if not user_id:
         return []
 

@@ -71,8 +71,8 @@ async def reply(
     whatsapp_number = form_data.get("From", "").split("whatsapp:")[-1].strip()
     logger.info(f"Incoming message from {whatsapp_number}: {Body or MediaUrl0}")
 
-    # Step 1: Retrieve last 50 messages for context
-    last_messages = get_last_messages(db, whatsapp_number, limit=50)
+    # Step 1: Retrieve last 20 messages for context
+    last_messages = get_last_messages(db, whatsapp_number, limit=20)
 
     # Step 2: Detect message type
     if MediaUrl0:
