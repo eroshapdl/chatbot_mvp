@@ -29,6 +29,7 @@ WHATSAPP_BOT_NUMBER = config("TWILIO_NUMBER")
 
 # Facebook
 FACEBOOK_PAGE_ACCESS_TOKEN = config("FACEBOOK_PAGE_ACCESS_TOKEN")
+FACEBOOK_VERIFY_TOKEN = config("FACEBOOK_PAGE_ACCESS_TOKEN")
 FACEBOOK_PAGE_ID = "61580076162127"
 
 # Doctor persona
@@ -144,6 +145,16 @@ async def whatsapp_reply(
 
 # ====== Facebook Bot ======
 processed_mids = set()
+
+@app.get("/facebook/webhook")
+async def verify(request: Request):
+    mode = request.query_params.get("hub.mode")
+    token = request.query_params.get("hub.verify_token")
+    challenge = request.query_params.get("hub.challenge")
+
+    if mode == "subscribe" and token == FACEBOOK_VERIFY_TOKEN:
+        return int(challenge)  # must return challenge directly
+    return {"error": "Invalid verify token"}
 
 @app.post("/facebook/webhook")
 async def handle_facebook_webhook(request: Request, db: Session = Depends(get_db)):
