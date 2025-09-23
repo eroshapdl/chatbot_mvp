@@ -1,0 +1,201 @@
+2025-09-22 12:29:43,974 - INFO - Chrome started
+2025-09-22 12:29:44,189 - INFO - 🤖 Starting Improved Messenger Bot
+2025-09-22 12:29:44,189 - INFO - Opening Messenger...
+2025-09-22 12:32:26,547 - INFO - 🚀 Bot running - will respond to NEW user messages only
+2025-09-22 12:32:26,547 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:32:28,840 - INFO - Found 7 chat links
+2025-09-22 12:32:28,840 - INFO - Found 3 chats
+2025-09-22 12:32:28,856 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:32:35,927 - INFO - ✅ Found new user message: 'It sounds like you're experiencing lower abdominal pain with bloating or gas. Simethicone is indeed a good over-the-counter option for gas relief. Additionally, antacids can help if you're feeling discomfort. Peppermint tea may also provide soothing effects. Avoiding gas-producing foods is advisable. If your symptoms persist or worsen, please consult a doctor for further evaluation.' (x_pos: 495)
+2025-09-22 12:32:35,928 - INFO - 📨 Processing message: 'It sounds like you're experiencing lower abdominal pain with bloating or gas. Simethicone is indeed a good over-the-counter option for gas relief. Additionally, antacids can help if you're feeling discomfort. Peppermint tea may also provide soothing effects. Avoiding gas-producing foods is advisable. If your symptoms persist or worsen, please consult a doctor for further evaluation.'
+2025-09-22 12:32:35,930 - INFO - Generating response for: 'It sounds like you're experiencing lower abdominal pain with bloating or gas. Simethicone is indeed a good over-the-counter option for gas relief. Additionally, antacids can help if you're feeling discomfort. Peppermint tea may also provide soothing effects. Avoiding gas-producing foods is advisable. If your symptoms persist or worsen, please consult a doctor for further evaluation.'
+2025-09-22 12:32:39,470 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 12:32:39,502 - INFO - Generated response: 'It seems you're experiencing lower abdominal pain with bloating or gas. Simethicone is a good over-the-counter option for gas relief. Antacids can help alleviate discomfort as well. Peppermint tea may provide soothing effects. Avoiding gas-producing foods is advisable. If your symptoms persist or worsen, please consult a doctor for further evaluation.'
+2025-09-22 12:32:45,355 - INFO - ✅ Sent: 'It seems you're experiencing lower abdominal pain with bloating or gas. Simethicone is a good over-the-counter option for gas relief. Antacids can help alleviate discomfort as well. Peppermint tea may provide soothing effects. Avoiding gas-producing foods is advisable. If your symptoms persist or worsen, please consult a doctor for further evaluation.'
+2025-09-22 12:32:45,356 - INFO - ✅ Message processed successfully
+2025-09-22 12:32:45,356 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:32:50,361 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:32:52,393 - INFO - Found 7 chat links
+2025-09-22 12:32:52,393 - INFO - Found 3 chats
+2025-09-22 12:32:52,430 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:32:52,430 - INFO - Responded to chat 4122651144689189 recently (7.1s ago), skipping
+2025-09-22 12:32:52,431 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:32:57,435 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:32:59,470 - INFO - Found 7 chat links
+2025-09-22 12:32:59,470 - INFO - Found 3 chats
+2025-09-22 12:32:59,491 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:32:59,491 - INFO - Responded to chat 4122651144689189 recently (14.1s ago), skipping
+2025-09-22 12:32:59,491 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:33:04,496 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:33:06,518 - INFO - Found 7 chat links
+2025-09-22 12:33:06,518 - INFO - Found 3 chats
+2025-09-22 12:33:06,536 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:33:06,537 - INFO - Responded to chat 4122651144689189 recently (21.2s ago), skipping
+2025-09-22 12:33:06,537 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:33:11,542 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:33:13,571 - INFO - Found 7 chat links
+2025-09-22 12:33:13,571 - INFO - Found 3 chats
+2025-09-22 12:33:13,602 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:33:13,602 - INFO - Responded to chat 4122651144689189 recently (28.2s ago), skipping
+2025-09-22 12:33:13,602 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:33:18,607 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:33:20,640 - INFO - Found 7 chat links
+2025-09-22 12:33:20,641 - INFO - Found 3 chats
+2025-09-22 12:33:20,674 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:33:27,893 - INFO - ✅ Found new user message: 'hi hello how are you' (x_pos: 452)
+2025-09-22 12:33:27,893 - INFO - 📨 Processing message: 'hi hello how are you'
+2025-09-22 12:33:27,893 - INFO - Generating response for: 'hi hello how are you'
+2025-09-22 12:33:30,285 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 12:33:30,302 - INFO - Generated response: 'Hello! I'm here to help with any health-related questions or symptoms you may have. Please share your specific concerns.'
+2025-09-22 12:33:35,636 - INFO - ✅ Sent: 'Hello! I'm here to help with any health-related questions or symptoms you may have. Please share your specific concerns.'
+2025-09-22 12:33:35,636 - INFO - ✅ Message processed successfully
+2025-09-22 12:33:35,636 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:33:40,641 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:33:42,661 - INFO - Found 7 chat links
+2025-09-22 12:33:42,662 - INFO - Found 3 chats
+2025-09-22 12:33:42,675 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:33:42,675 - INFO - Responded to chat 4122651144689189 recently (7.0s ago), skipping
+2025-09-22 12:33:42,675 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:33:47,680 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:33:49,690 - INFO - Found 7 chat links
+2025-09-22 12:33:49,690 - INFO - Found 3 chats
+2025-09-22 12:33:49,699 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:33:49,699 - INFO - Responded to chat 4122651144689189 recently (14.1s ago), skipping
+2025-09-22 12:33:49,699 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:33:54,703 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:33:56,737 - INFO - Found 7 chat links
+2025-09-22 12:33:56,738 - INFO - Found 3 chats
+2025-09-22 12:33:56,790 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:33:56,791 - INFO - Responded to chat 4122651144689189 recently (21.2s ago), skipping
+2025-09-22 12:33:56,791 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:34:01,797 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:34:03,831 - INFO - Found 7 chat links
+2025-09-22 12:34:03,832 - INFO - Found 3 chats
+2025-09-22 12:34:03,868 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:34:03,868 - INFO - Responded to chat 4122651144689189 recently (28.2s ago), skipping
+2025-09-22 12:34:03,869 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:34:08,874 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:34:10,888 - INFO - Found 7 chat links
+2025-09-22 12:34:10,888 - INFO - Found 3 chats
+2025-09-22 12:34:10,901 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:34:18,974 - INFO - ✅ Found new user message: 'Hello! I'm here to help with any health-related questions or symptoms you may have. Please share your specific concerns.' (x_pos: 495)
+2025-09-22 12:34:18,974 - INFO - 📨 Processing message: 'Hello! I'm here to help with any health-related questions or symptoms you may have. Please share your specific concerns.'
+2025-09-22 12:34:18,974 - INFO - Generating response for: 'Hello! I'm here to help with any health-related questions or symptoms you may have. Please share your specific concerns.'
+2025-09-22 12:34:22,846 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 12:34:22,866 - INFO - Generated response: 'It seems you might be looking for assistance with health-related questions or symptoms. Please share your specific concerns or symptoms, and I'll be glad to help!'
+2025-09-22 12:34:28,613 - INFO - ✅ Sent: 'It seems you might be looking for assistance with health-related questions or symptoms. Please share your specific concerns or symptoms, and I'll be glad to help!'
+2025-09-22 12:34:28,614 - INFO - ✅ Message processed successfully
+2025-09-22 12:34:28,614 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:34:33,620 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:34:35,630 - INFO - Found 7 chat links
+2025-09-22 12:34:35,631 - INFO - Found 3 chats
+2025-09-22 12:34:35,639 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:34:35,640 - INFO - Responded to chat 4122651144689189 recently (7.0s ago), skipping
+2025-09-22 12:34:35,640 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:34:40,644 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:34:42,663 - INFO - Found 7 chat links
+2025-09-22 12:34:42,664 - INFO - Found 3 chats
+2025-09-22 12:34:42,678 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:34:42,678 - INFO - Responded to chat 4122651144689189 recently (14.1s ago), skipping
+2025-09-22 12:34:42,679 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:34:47,684 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:34:49,702 - INFO - Found 7 chat links
+2025-09-22 12:34:49,702 - INFO - Found 3 chats
+2025-09-22 12:34:49,720 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:34:49,720 - INFO - Responded to chat 4122651144689189 recently (21.1s ago), skipping
+2025-09-22 12:34:49,720 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:34:54,726 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:34:56,749 - INFO - Found 7 chat links
+2025-09-22 12:34:56,749 - INFO - Found 3 chats
+2025-09-22 12:34:56,772 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:34:56,773 - INFO - Responded to chat 4122651144689189 recently (28.2s ago), skipping
+2025-09-22 12:34:56,773 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:35:01,778 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:35:03,815 - INFO - Found 7 chat links
+2025-09-22 12:35:03,816 - INFO - Found 3 chats
+2025-09-22 12:35:03,859 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:35:12,311 - INFO - ✅ Found new user message: 'i have like mild headache.' (x_pos: 452)
+2025-09-22 12:35:12,312 - INFO - 📨 Processing message: 'i have like mild headache.'
+2025-09-22 12:35:12,312 - INFO - Generating response for: 'i have like mild headache.'
+2025-09-22 12:35:16,095 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 12:35:16,110 - INFO - Generated response: 'For a mild headache, you can try over-the-counter pain relievers like ibuprofen or acetaminophen. Staying hydrated and resting in a quiet, dark room may also help. If your headache persists or worsens, please see a doctor.'
+2025-09-22 12:35:22,425 - INFO - ✅ Sent: 'For a mild headache, you can try over-the-counter pain relievers like ibuprofen or acetaminophen. Staying hydrated and resting in a quiet, dark room may also help. If your headache persists or worsens, please see a doctor.'
+2025-09-22 12:35:22,426 - INFO - ✅ Message processed successfully
+2025-09-22 12:35:22,426 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:35:27,431 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:35:29,449 - INFO - Found 7 chat links
+2025-09-22 12:35:29,449 - INFO - Found 3 chats
+2025-09-22 12:35:29,508 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:35:29,508 - INFO - Responded to chat 4122651144689189 recently (7.1s ago), skipping
+2025-09-22 12:35:29,511 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:35:34,517 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:35:36,532 - INFO - Found 7 chat links
+2025-09-22 12:35:36,533 - INFO - Found 3 chats
+2025-09-22 12:35:36,544 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:35:36,544 - INFO - Responded to chat 4122651144689189 recently (14.1s ago), skipping
+2025-09-22 12:35:36,544 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:35:41,548 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:35:43,559 - INFO - Found 7 chat links
+2025-09-22 12:35:43,559 - INFO - Found 3 chats
+2025-09-22 12:35:43,571 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:35:43,571 - INFO - Responded to chat 4122651144689189 recently (21.1s ago), skipping
+2025-09-22 12:35:43,571 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:35:48,575 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:35:50,586 - INFO - Found 7 chat links
+2025-09-22 12:35:50,586 - INFO - Found 3 chats
+2025-09-22 12:35:50,594 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:35:50,594 - INFO - Responded to chat 4122651144689189 recently (28.2s ago), skipping
+2025-09-22 12:35:50,595 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:35:55,600 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:35:57,632 - INFO - Found 7 chat links
+2025-09-22 12:35:57,633 - INFO - Found 3 chats
+2025-09-22 12:35:57,670 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:36:05,595 - INFO - ✅ Found new user message: 'For a mild headache, you can try over-the-counter pain relievers like ibuprofen or acetaminophen. Staying hydrated and resting in a quiet, dark room may also help. If your headache persists or worsens, please see a doctor.' (x_pos: 495)
+2025-09-22 12:36:05,595 - INFO - 📨 Processing message: 'For a mild headache, you can try over-the-counter pain relievers like ibuprofen or acetaminophen. Staying hydrated and resting in a quiet, dark room may also help. If your headache persists or worsens, please see a doctor.'
+2025-09-22 12:36:05,595 - INFO - Generating response for: 'For a mild headache, you can try over-the-counter pain relievers like ibuprofen or acetaminophen. Staying hydrated and resting in a quiet, dark room may also help. If your headache persists or worsens, please see a doctor.'
+2025-09-22 12:36:08,724 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 12:36:08,817 - INFO - Generated response: 'It seems like you've already provided a good response for a mild headache. For such symptoms, over-the-counter pain relievers like ibuprofen or acetaminophen, along with hydration and rest, are indeed appropriate. If the headache persists or worsens, seeing a doctor is advisable.'
+2025-09-22 12:36:15,111 - INFO - ✅ Sent: 'It seems like you've already provided a good response for a mild headache. For such symptoms, over-the-counter pain relievers like ibuprofen or acetaminophen, along with hydration and rest, are indeed appropriate. If the headache persists or worsens, seeing a doctor is advisable.'
+2025-09-22 12:36:15,112 - INFO - ✅ Message processed successfully
+2025-09-22 12:36:15,112 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:36:20,117 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:36:22,137 - INFO - Found 7 chat links
+2025-09-22 12:36:22,137 - INFO - Found 3 chats
+2025-09-22 12:36:22,155 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:36:22,156 - INFO - Responded to chat 4122651144689189 recently (7.0s ago), skipping
+2025-09-22 12:36:22,156 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:36:27,161 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:36:29,170 - INFO - Found 7 chat links
+2025-09-22 12:36:29,170 - INFO - Found 3 chats
+2025-09-22 12:36:29,180 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:36:29,181 - INFO - Responded to chat 4122651144689189 recently (14.1s ago), skipping
+2025-09-22 12:36:29,181 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:36:34,186 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:36:36,222 - INFO - Found 7 chat links
+2025-09-22 12:36:36,223 - INFO - Found 3 chats
+2025-09-22 12:36:36,263 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:36:36,264 - INFO - Responded to chat 4122651144689189 recently (21.2s ago), skipping
+2025-09-22 12:36:36,264 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:36:41,269 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:36:43,278 - INFO - Found 7 chat links
+2025-09-22 12:36:43,278 - INFO - Found 3 chats
+2025-09-22 12:36:43,287 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:36:43,288 - INFO - Responded to chat 4122651144689189 recently (28.2s ago), skipping
+2025-09-22 12:36:43,288 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:36:48,293 - INFO - ⏰ Checking for new messages...
+2025-09-22 12:36:50,326 - INFO - Found 7 chat links
+2025-09-22 12:36:50,327 - INFO - Found 3 chats
+2025-09-22 12:36:50,360 - INFO - 🔍 Processing chat: 4122651144689189
+2025-09-22 12:36:58,389 - INFO - ✅ Found new user message: 'It seems like you've already provided a good response for a mild headache. For such symptoms, over-the-counter pain relievers like ibuprofen or acetaminophen, along with hydration and rest, are indeed appropriate. If the headache persists or worsens, seeing a doctor is advisable.' (x_pos: 495)
+2025-09-22 12:36:58,389 - INFO - 📨 Processing message: 'It seems like you've already provided a good response for a mild headache. For such symptoms, over-the-counter pain relievers like ibuprofen or acetaminophen, along with hydration and rest, are indeed appropriate. If the headache persists or worsens, seeing a doctor is advisable.'
+2025-09-22 12:36:58,389 - INFO - Generating response for: 'It seems like you've already provided a good response for a mild headache. For such symptoms, over-the-counter pain relievers like ibuprofen or acetaminophen, along with hydration and rest, are indeed appropriate. If the headache persists or worsens, seeing a doctor is advisable.'
+2025-09-22 12:37:00,119 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 12:37:00,125 - INFO - Generated response: 'For a mild headache, ibuprofen or acetaminophen are effective over-the-counter options. Ensure you stay hydrated and rest. If your headache persists or worsens, please see a doctor.'
+2025-09-22 12:37:05,637 - INFO - ✅ Sent: 'For a mild headache, ibuprofen or acetaminophen are effective over-the-counter options. Ensure you stay hydrated and rest. If your headache persists or worsens, please see a doctor.'
+2025-09-22 12:37:05,638 - INFO - ✅ Message processed successfully
+2025-09-22 12:37:05,639 - INFO - ⏳ Waiting 5 seconds...
+2025-09-22 12:37:06,236 - INFO - 🛑 Bot stopped by user
+2025-09-22 12:37:06,240 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(104, 'Connection reset by peer')': /session/011b55e7f463c6de4f7414b65d0dc271
+2025-09-22 12:37:06,242 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75ee53a858d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/011b55e7f463c6de4f7414b65d0dc271
+2025-09-22 12:37:06,246 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75ee53a84fa0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/011b55e7f463c6de4f7414b65d0dc271
+2025-09-22 12:37:06,253 - INFO - Bot shutdown complete
